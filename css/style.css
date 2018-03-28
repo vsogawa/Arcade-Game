@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+}
+
+p {
+	margin: 0;
+	color: gray;
+}
+
+canvas {
+	max-width: 100%;
+}
+
+#deaths {
+	color: #C00F;
+	font-size: 36px;
+	float: left;
+	font-family: "Helvetica";
+	font-weight: 900;
+}
+
+#deathtext {
+	color: black;
+}
+
+#bestrun, #worstrun {
+	font-family: "Helvetica";
+	font-size: 28px;
+	color: gray;
+	font-weight: 700;
+	text-align: right;
+}
+
+.blinkred {
+	animation-name: blinksred;
+	animation-duration: 2.5s;
+}
+
+@keyframes blinksred {
+	0% {color: #C00F;}
+	40% {color: #C00F;}
+	100% {color: gray;}
+}
+
+.blinkgreen {
+	animation-name: blinksgreen;
+	animation-duration: 2.5s;
+}
+
+@keyframes blinksgreen {
+	0% {color: #080;}
+	40% {color: #080;}
+	100% {color: gray;}
+}
+
+
+div {
+	max-width: 500px;
+	margin: auto;
+}
