@@ -17,14 +17,14 @@ class Enemy {
         else {this.sprite = 'images/enemy-bug.png'}
         this.x = x
         this.y = y
-        this.rate = direction * (/*200 +*/ Math.floor(Math.random() * 200))
+        this.rate = direction * (200 + Math.floor(Math.random() * 200))
     }
 
     recycleBugs() {
         if (this.x > 500) {
             this.x = -90;
             this.sprite = 'images/enemy-bug.png';
-            this.rate = (/*200 +*/ Math.floor(Math.random() * 200));
+            this.rate = (200 + Math.floor(Math.random() * 200));
             let possibleRows = [row2, row4];
             let randomRow = possibleRows[Math.floor(Math.random() * possibleRows.length)];
             this.y = randomRow;
@@ -32,7 +32,7 @@ class Enemy {
         if (this.x < -95) {
             this.x = 500;
             this.sprite = 'images/enemy-bug-left.png';
-            this.rate = -1 * (/*200 +*/ Math.floor(Math.random() * 200));
+            this.rate = -1 * (200 + Math.floor(Math.random() * 200));
             let possibleRows = [row1, row3];
             let randomRow = possibleRows[Math.floor(Math.random() * possibleRows.length)];
             this.y = randomRow;
@@ -43,7 +43,7 @@ class Enemy {
         if (this.y === (player.y - 8) && this.x < (player.x + 70) && this.x > (player.x - 70)) {
             player.y = 405;
             deaths++;
-            $("#deaths").empty().append(`<span id="deathtext">Deaths: </span>${deaths}`);
+            $("#deaths").empty().append(`<p id="deaths"><span id="deathtext">Deaths:</span> ${deaths}</p>`);
         }
     }
         // Update the enemy's position, required method for game
@@ -98,7 +98,7 @@ class Player {
 
 
             deaths = 0;
-            $("#deaths").empty().append(`<span id="deathtext">Deaths: </span>${deaths}`);
+            $("#deaths").empty().append(`<p id="deaths"><span id="deathtext">Deaths:</span> ${deaths}</p>`);
             this.y = 405;
             numberOfPlays++;
         }
@@ -133,16 +133,16 @@ class Player {
 let allEnemies = [];
 
 function addBugs(){
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
         let possibleRows = [row2, row4];
         let randomRow = possibleRows[Math.floor(Math.random() * possibleRows.length)];
-        let bug = new Enemy (Math.random() * 800, randomRow, 1);
+        let bug = new Enemy (Math.random() * 500, randomRow, 1);
         allEnemies.push(bug);
     }
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
         let possibleRows = [row1, row3];
         let randomRow = possibleRows[Math.floor(Math.random() * possibleRows.length)];
-        let bug = new Enemy (Math.random() * 800, randomRow, -1);
+        let bug = new Enemy (Math.random() * 500, randomRow, -1);
         allEnemies.push(bug);
     }
 }
@@ -166,7 +166,7 @@ document.addEventListener('keyup', function(e) {
 });
 
 document.addEventListener('click', function(e) {
-    if (player.y !== -10) {
+    if (player.y !== -10 && window.innerWidth <=400) {
         player.y -= 83;
     }    
 });
