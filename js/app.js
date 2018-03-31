@@ -112,7 +112,7 @@ class Player {
         if (event.which === 37 && this.x !==0) {
             this.x -= 101;
         }
-        if (event.which === 39 && this.x !==909) {
+        if (event.which === 39 && this.x !==404) {
             this.x += 101;
         }   
         if (event.which === 38 && this.y !== -10) {
